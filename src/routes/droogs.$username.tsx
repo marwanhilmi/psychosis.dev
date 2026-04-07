@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { useState, useEffect, useRef } from 'react'
 import { PsychosisMeter } from '#/components/PsychosisMeter'
 import { ShareButtons } from '#/components/ShareButtons'
+import { SignalBreakdown } from '#/components/SignalBreakdown'
 import { client } from '#/orpc/client'
 
 export const Route = createFileRoute('/droogs/$username')({
@@ -141,6 +142,11 @@ function DroogPage() {
             <p className="font-display text-lg leading-relaxed text-[var(--milk)]">{droog.diagnosis}</p>
           </div>
         )}
+      </div>
+
+      {/* Signal Breakdown */}
+      <div className="w-full max-w-xl">
+        <SignalBreakdown breakdownJson={droog.breakdown} />
       </div>
 
       {/* Actions */}

@@ -5,6 +5,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { PsychosisMeter } from '#/components/PsychosisMeter'
 import { RepoPicker, type RepoItem } from '#/components/RepoPicker'
 import { ShareButtons } from '#/components/ShareButtons'
+import { SignalBreakdown } from '#/components/SignalBreakdown'
 import { authClient } from '#/lib/auth-client'
 import { FEATURES } from '#/lib/feature-flags'
 import { client } from '#/orpc/client'
@@ -34,6 +35,7 @@ interface ScoreData {
   zone: string
   diagnosis: string | null
   indicators: string | null
+  breakdown: string | null
 }
 
 interface ProvidersState {
@@ -168,6 +170,7 @@ function HomePage() {
           zone: score.zone,
           diagnosis: score.diagnosis,
           indicators: score.indicators,
+          breakdown: score.breakdown,
         })
         setStep('result')
         void queryClient.invalidateQueries({ queryKey: ['droogs'] })
@@ -212,6 +215,7 @@ function HomePage() {
             zone: score.zone,
             diagnosis: score.diagnosis,
             indicators: score.indicators,
+            breakdown: score.breakdown,
           })
           setStep('result')
         }
@@ -537,6 +541,9 @@ function HomePage() {
               </p>
             </div>
           </div>
+
+          {/* Signal Breakdown */}
+          <SignalBreakdown breakdownJson={scoreData.breakdown} />
 
           {/* Share buttons */}
           <div className="mt-8 flex flex-col items-center gap-4">
