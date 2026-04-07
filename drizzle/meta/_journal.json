@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1775200799849,
+      "tag": "0000_medical_anita_blake",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1775532286076,
+      "tag": "0001_cheerful_shatterstar",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1775585657092,
+      "tag": "0002_mysterious_beast",
+      "breakpoints": true
+    }
+  ]
+}

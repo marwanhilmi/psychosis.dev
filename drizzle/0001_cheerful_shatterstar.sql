@@ -1,0 +1,1 @@
+ALTER TABLE `psychosis_scores` ADD `source` text DEFAULT 'reported' NOT NULL;
